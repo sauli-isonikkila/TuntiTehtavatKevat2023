@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>Tehtävä 03</title>
+	</head>
+	<body>
+		<form >
+			
+			<button onclick="haeTiedot()" >Hae</button>
+		</form>
+		
+	
+	</body>
+	<script >
+		function haeTiedot() {
+			fetch("laheta/", {method: "GET"})
+			.then(function (response) {
+					return response;
+				}
+			).then(
+					
+			);	
+		}
+	</script>
+</html>
