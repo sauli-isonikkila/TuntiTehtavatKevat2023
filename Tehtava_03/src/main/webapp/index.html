@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html>
-	<head>
-	<meta charset="UTF-8">
-	<title>Tehtävä 03</title>
-	</head>
-	<body>
-		<form >
-			
-			<button onclick="haeTiedot()" >Hae</button>
-		</form>
-		
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>Viestin lähetys</title>
+</head>
+<body>
+	<span id="ilmo"></span>
+	<table id="listaus">
+		<thead>	
+			<tr>
+				<input type="button" id="hae" value="Hae" onclick="haeTiedot()">	
+			</tr>
+		</thead>
+		<tbody id="tbody">
+		</tbody>
+	</table>
+<script>
 	
-	</body>
-	<script >
-		function haeTiedot() {
-			fetch("laheta/", {method: "GET"})
-			.then(function (response) {
-					return response;
-				}
-			).then(
-					
-			);	
-		}
-	</script>
+// Funktio tietojen hakemista varten
+// GET   /LahetaViestiServlet/}
+function haeTiedot(){	
+	
+	fetch("laheta/",{
+	      method: 'GET'	      
+	    })
+	.then( function (response) {
+		return response.json()
+	})
+	.then( function (responseJson) {
+		var viesti = responseJson.viesti;	
+		console.log(viesti);
+		var htmlStr=viesti;
+		
+		document.getElementById("tbody").innerHTML = htmlStr;		
+	})	
+}
+
+</script>
+</body>
 </html>

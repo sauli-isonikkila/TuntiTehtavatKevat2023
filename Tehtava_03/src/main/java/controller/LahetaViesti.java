@@ -9,10 +9,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
 /**
  * Servlet implementation class LahetaViesti
  */
-@WebServlet("/laheta")
+@WebServlet("/laheta/*")
 public class LahetaViesti extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -33,7 +35,7 @@ public class LahetaViesti extends HttpServlet {
 		response.setContentType("application/json");
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out = response.getWriter();
-		out.println(strJSON)
+		out.println(strJSON);
 		
 	}
 
